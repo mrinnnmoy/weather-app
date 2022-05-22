@@ -20,8 +20,9 @@ function App() {
   return (
 
     <div className="app">
-    <div className="title">Weather App</div>
-    <p className="id">Made by <a className="gitid" href="https://github.com/mrinnnmoy">Mrinmoy Porel</a> with ❤️.</p>
+      <div className="title">Weather App</div>
+      <p className="id">Made by <a className="gitid" href="https://github.com/mrinnnmoy">Mrinmoy Porel</a> with ❤️.</p>
+      <br/>
       <div className="search">
         <input
           value={location}
@@ -41,24 +42,30 @@ function App() {
           <div className="description">
             {data.weather ? <p>{data.weather[0].main}</p> : null}
           </div>
+          {/* For Spacing */}
+          <br />
+          <br />
+          <br />
+          <br />
+          <br />
+          <br />
+          {data.name !== undefined &&
+            <div className="bottom">
+              <div className="feels">
+                {data.main ? <p className="bold">{data.main.feels_like.toFixed()} °C</p> : null}
+                <p>Feels Like</p>
+              </div>
+              <div className="humidity">
+                {data.main ? <p className="bold">{data.main.humidity}%</p> : null}
+                <p>Humidity</p>
+              </div>
+              <div className="wind">
+                {data.wind ? <p className="bold">{data.wind.speed.toFixed()} MPH</p> : null}
+                <p>Wind Speed</p>
+              </div>
+            </div>
+          }
         </div>
-
-        {data.name !== undefined &&
-          <div className="bottom">
-            <div className="feels">
-              {data.main ? <p className="bold">{data.main.feels_like.toFixed()} °C</p> : null}
-              <p>Feels Like</p>
-            </div>
-            <div className="humidity">
-              {data.main ? <p className="bold">{data.main.humidity}%</p> : null}
-              <p>Humidity</p>
-            </div>
-            <div className="wind">
-              {data.wind ? <p className="bold">{data.wind.speed.toFixed()} MPH</p> : null}
-              <p>Wind Speed</p>
-            </div>
-          </div>
-        }
       </div>
     </div>
   );
